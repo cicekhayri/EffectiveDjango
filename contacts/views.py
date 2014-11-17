@@ -1,7 +1,9 @@
+
 from django.core.urlresolvers import reverse
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
 from contacts.models import Contact
+from contacts.forms import ContactForm
 
 class ListContactView(ListView):
     model = Contact
@@ -10,6 +12,7 @@ class ListContactView(ListView):
 class CreateContactView(CreateView):
     model = Contact
     template_name = 'edit_contact.html'
+    form_class = ContactForm
 
     def get_success_url(self):
         return reverse('contacts-list')
@@ -23,6 +26,7 @@ class CreateContactView(CreateView):
 class UpdateContactView(UpdateView):
     model = Contact
     template_name = 'edit_contact.html'
+    form_class = ContactForm
 
     def get_success_url(self):
         return reverse('contacts-list')
