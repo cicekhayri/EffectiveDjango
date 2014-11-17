@@ -3,6 +3,7 @@
 {% block content %}
 {% if contact.id %}
 <h1>Edit Contact</h1>
+<a href="{% url "contacts-delete" pk=contact.id %}">Delete</a>
 {% else %}
 <h1>Add Contact</h1>
 {% endif %}
