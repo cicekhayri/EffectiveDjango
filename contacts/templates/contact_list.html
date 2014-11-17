@@ -5,7 +5,7 @@
 
 <ul>
   {% for contact in object_list %}
-  <li class="contact">{{ contact }} (<a href="{% url 'contacts-edit' pk=contact.id %}">edit</a>)</li>
+  <li class="contact"><a href="{{ contact.get_absolute_url }}">{{ contact }}</a> (<a href="{% url 'contacts-edit' pk=contact.id %}">edit</a>)</li>
   {% endfor %}
 </ul>
 {% endblock %}
